@@ -5,7 +5,7 @@ use crate::job::job_data_prost::{JobState, JobType};
 use crate::job_scheduler::JobsSchedulerLocked;
 use crate::{JobScheduler, JobSchedulerError, JobStoredData};
 use chrono::{DateTime, Utc};
-use cron::Schedule;
+use crate::Schedule;
 use cron_job::CronJob;
 use non_cron_job::NonCronJob;
 use std::convert::TryInto;

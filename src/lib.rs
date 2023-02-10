@@ -15,6 +15,7 @@ mod postgres;
 mod scheduler;
 mod simple;
 mod store;
+mod schedule;
 
 use std::ops::Add;
 use std::str::FromStr;
@@ -25,7 +26,6 @@ use crate::job::job_data::ListOfUuids;
 #[cfg(feature = "has_bytes")]
 use crate::job::job_data_prost::ListOfUuids;
 use chrono::{DateTime, Utc};
-use cron::Schedule;
 #[cfg(not(feature = "has_bytes"))]
 use job::job_data::{JobAndNextTick, JobStoredData, Uuid as JobUuid};
 #[cfg(feature = "has_bytes")]
@@ -50,6 +50,7 @@ pub use job::OnJobNotification;
 pub use job::{JobToRun, JobToRunAsync};
 pub use job_scheduler::JobsSchedulerLocked as JobScheduler;
 pub use store::{MetaDataStorage, NotificationStore};
+pub use schedule::Schedule;
 
 pub use simple::{
     SimpleJobCode, SimpleMetadataStore, SimpleNotificationCode, SimpleNotificationStore,
